@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!-- ====================================================================== 
+     Mar 26, 2006 4:30:31 PM                                                        
+
+     ChatServer    
+     Komiliert und erstellt den Chatserver
+                   
+     vlandgraf                                                                
+     ====================================================================== -->
+<project name="ChatServer" default="package">
+    <description>
+            Komiliert und erstellt den Chatserver
+    </description>
+
+	<property name="conchat.folder" value="conchat"/>
+	<property name="conchat.lib" value="${conchat.folder}/lib"/>
+	<property name="conchat.data" value="${conchat.folder}/data"/>
+	
+    <!-- ================================= 
+          target: package              
+         ================================= -->
+    <target name="package" depends="build" description="--> Komiliert und erstellt den Chatserver">
+    		<jar destfile="${conchat.lib}/server.jar" basedir="bin"
+    			includes="**/server/**/*.class">
+    		</jar>
+    		<zip destfile="server.zip" basedir="${conchat.folder}"></zip>
+    </target>
+
+	
+    <!-- - - - - - - - - - - - - - - - - - 
+          target: build                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="build" depends="depends">
+		<javac destdir="bin"
+			classpath="lib/jython.jar"
+			srcdir="src">
+		</javac>
+    </target>
+	
+    <!-- - - - - - - - - - - - - - - - - - 
+          target: depends                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="depends">
+    	<delete dir="${conchat.folder}" />
+		<mkdir dir="${conchat.folder}"/>
+		<mkdir dir="${conchat.lib}"/>
+		<mkdir dir="${conchat.data}"/>
+    	<copydir dest="${conchat.lib}" src="lib"/>
+    	<copydir dest="${conchat.data}" src="data"/>
+    	<copydir dest="${conchat.folder}" src="script/server"/>
+    	<chmod perm="755" file="${conchat.folder}/start.sh"/>
+    </target>
+
+</project>
+

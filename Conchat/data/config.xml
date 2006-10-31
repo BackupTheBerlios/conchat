@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<fileserver>
+	<commands>
+		<command path="de.conchat.server.command.Change">
+			<alias name="/change" />
+			<!-- NO STANDART -->
+			<alias name="/join" />
+			<alias name="/j" />
+		</command>
+		<command path="de.conchat.server.command.Chatrooms">
+			<alias name="/chatrooms" />
+			<!-- NO STANDART -->
+			<alias name="/rooms" />
+		</command>
+		<command path="de.conchat.server.command.Disconnect">
+			<alias name="/disconnect" />
+			<!-- NO STANDART -->
+			<alias name="/exit" />
+			<alias name="/quit" />
+			<alias name="/logout" />
+		</command>
+		<command path="de.conchat.server.command.Help">
+			<alias name="/help" />
+		</command>
+		<command path="de.conchat.server.command.Nick">
+			<alias name="/nick" />
+		</command>
+		<command path="de.conchat.server.command.Status">
+			<alias name="/status" />
+		</command>
+		<command path="de.conchat.server.command.Users">
+			<alias name="/users" />
+		</command>
+		<command path="de.conchat.server.command.Whisper">
+			<alias name="/w" />
+			<!-- NO STANDART -->
+			<alias name="/whisper" />
+			<alias name="/wisper" />
+		</command>
+		<command path="user/echo.py">
+			<alias name="/echo" />
+		</command>
+		<command path="user/ip.py">
+			<alias name="/ip" />
+		</command>
+		<command path="user/endsession.py">
+			<alias name="/pyquit" />
+		</command>
+		<command path="admin/mapping.py">
+			<alias name="/admin_refresh_mapping" />
+		</command>
+		<command path="admin/eval.py">
+			<alias name="/admin_eval_py" />
+		</command>
+		<command path="admin/kick.py">
+			<alias name="/admin_kick" />
+		</command>
+		<command path="admin/shutdown.py">
+			<alias name="/admin_shutdown" />
+			<alias name="/admin_shutdown_server" />
+		</command>
+		<command path="admin/ban.py">
+			<alias name="/admin_ban" />
+			<alias name="/admin_ban_user" />
+		</command>
+		<command path="admin/unban.py">
+			<alias name="/admin_unban" />
+			<alias name="/admin_unban_user" />
+		</command>
+	</commands>
+</fileserver>

@@ -1,0 +1,1 @@
+java -cp lib/chatserver.jar;lib/jython.jar;data/plugins com.telekom.bs.chatserver.server.Application 8080 data/mapping.xml pass

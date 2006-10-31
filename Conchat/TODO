@@ -1,0 +1,77 @@
+
+      C O N C H A T --- T O D O  L I S T
+
+´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´
+This list contains all features that are not implemented,
+but planned in the feature:
+
+:: Server
+´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´
+# Add multiline support and binary Transfer format
+	Add support for Multiline based transfers. Change transfer to paket based 
+	transfer instat of sending singel lines. Think of a later file transfer.
+
+# Support for JRuby
+	Integrate the JRuby implementation in the command-interpreter-pattern
+
+# Namespaces and Object orientation like command notation
+	Categorize commands in namespaces "user" and "admin" or any other. 
+	
+	Example admin call:
+		# admin.server.restart
+		or
+		# admin.server.shutdown
+		or 
+		# admin.users.ban <ip/username>
+
+# SSL-Support
+	Support secure connections for any service
+
+# Integrate a Rule an Role based system
+	Delegate a roles that can execute different commands
+
+# Change the Scripting Engine
+	Instat of using sourcecode to describe the script permissions use
+	XML and embedded scripts.
+	
+	Example:
+	---------------------------------------------
+	<?xml version="1.0" encoding="UTF-8" ?>
+	<plugin>
+		<header>
+			<author></author>
+			<change-date></change-date>
+			<version></version>
+			<security>
+				<deny from="*" type="ROLE">
+				<deny from="*" type="USER">
+				<allow from="admin" type="ROLE">
+			</securiry>
+		</header>
+		<script language="ruby or python">
+			... sourcecode ...
+		</script>
+	</plugin>
+	---------------------------------------------
+
+# Plugin-API
+	Develope a standadized plugin api for the application interaction
+	(Based on fassade pattern)
+
+# Integrate a file server
+	Divide this in private and public transfer. Global and private image
+	support.
+
+:: Client
+´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´
+
+# Adminconsole
+	A console or GUI to admin the most importent commands
+	
+# Developerconsole
+	Create a Console and commands to create and administrate
+
+# Plugin-API 
+	Develope a standadized plugin api for the application interaction
+	(Based on fassade pattern)
+	Develop a standadized plugin api for the application interaction
