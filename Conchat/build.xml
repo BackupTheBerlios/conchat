@@ -2,16 +2,11 @@
 <!-- ====================================================================== 
      Mar 26, 2006 4:30:31 PM                                                        
 
-     ChatServer    
-     Komiliert und erstellt den Chatserver
-                   
+     ChatServer          
+              
      vlandgraf                                                                
      ====================================================================== -->
 <project name="ChatServer" default="package">
-    <description>
-            Komiliert und erstellt den Chatserver
-    </description>
-
 	<property name="conchat.folder" value="conchat"/>
 	<property name="conchat.lib" value="${conchat.folder}/lib"/>
 	<property name="conchat.data" value="${conchat.folder}/data"/>
@@ -19,21 +14,19 @@
     <!-- ================================= 
           target: package              
          ================================= -->
-    <target name="package" depends="build" description="--> Komiliert und erstellt den Chatserver">
-    		<jar destfile="${conchat.lib}/server.jar" basedir="bin"
-    			includes="**/server/**/*.class">
-    		</jar>
-    		<zip destfile="server.zip" basedir="${conchat.folder}"></zip>
+    <target name="package" depends="build">
+    	<jar destfile="${conchat.lib}/server.jar" basedir="bin"
+    		includes="**/server/**/*.class">
+    	</jar>
+    	<zip destfile="server.zip" basedir="${conchat.folder}"></zip>
     </target>
-
 	
     <!-- - - - - - - - - - - - - - - - - - 
           target: build                      
          - - - - - - - - - - - - - - - - - -->
     <target name="build" depends="depends">
-		<javac destdir="bin"
-			classpath="lib/jython.jar"
-			srcdir="src">
+		<javac destdir="bin" classpath="lib/jython.jar"	srcdir="src"
+			includes="/usr/share/java/glade2.12.jar,/usr/share/java/gtk2.8.jar,/usr/share/java/glib0.2.jar">
 		</javac>
     </target>
 	
@@ -45,11 +38,14 @@
 		<mkdir dir="${conchat.folder}"/>
 		<mkdir dir="${conchat.lib}"/>
 		<mkdir dir="${conchat.data}"/>
-    	<copydir dest="${conchat.lib}" src="lib"/>
-    	<copydir dest="${conchat.data}" src="data"/>
-    	<copydir dest="${conchat.folder}" src="script/server"/>
+    	<copy todir="${conchat.lib}"><fileset dir="lib"/></copy>
+    	<copy todir="${conchat.data}"><fileset dir="data"/></copy>
+    	<copy todir="${conchat.folder}"><fileset dir="script/server"/></copy>
     	<chmod perm="755" file="${conchat.folder}/start.sh"/>
     </target>
 
+	<target name="clean">
+		<delete dir="${conchat.folder}" />
+		<delete file="server.zip" />
+	</target>
 </project>
-
