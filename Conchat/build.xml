@@ -35,17 +35,19 @@
          - - - - - - - - - - - - - - - - - -->
     <target name="depends">
     	<delete dir="${conchat.folder}" />
-		<mkdir dir="${conchat.folder}"/>
-		<mkdir dir="${conchat.lib}"/>
-		<mkdir dir="${conchat.data}"/>
+		<mkdir dir="${conchat.folder}" />
+		<mkdir dir="${conchat.lib}" />
+		<mkdir dir="bin" />
+		<mkdir dir="${conchat.data}" />
     	<copy todir="${conchat.lib}"><fileset dir="lib"/></copy>
     	<copy todir="${conchat.data}"><fileset dir="data"/></copy>
     	<copy todir="${conchat.folder}"><fileset dir="script/server"/></copy>
-    	<chmod perm="755" file="${conchat.folder}/start.sh"/>
+    	<chmod perm="755" file="${conchat.folder}/start.sh" />
     </target>
 
 	<target name="clean">
 		<delete dir="${conchat.folder}" />
+		<delete dir="bin" />
 		<delete file="server.zip" />
 	</target>
 </project>
